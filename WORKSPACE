@@ -73,7 +73,7 @@ git_repository(
 git_repository(
     name = "com_google_protobuf",
     remote = "https://github.com/google/protobuf.git",
-    tag = "v3.11.1",
+    tag = "v3.11.3",
 )
 
 # rules_cc defines rules for generating C++ code from Protocol Buffers.
