@@ -1,0 +1,43 @@
+## MODULE.bazel
+module(
+    name = "z2edit",
+    repo_name = "z2edit",
+)
+
+# gflags
+bazel_dep(name = "gflags", version = "2.2.2")
+
+# imgui
+git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+git_repository(name = "imgui_git", remote = "https://github.com/ocornut/imgui.git", commit = "bdce8336364595d1a446957a6164c97363349a53")
+
+#IconFontCppHeaders
+git_repository(name = "iconfonts", remote = "https://github.com/juliettef/IconFontCppHeaders.git", commit = "fda5f470b767f7b413e4a3995fa8cfe47f78b586")
+
+# Abseil
+bazel_dep(name = "abseil-cpp", version = "20240722.0.bcr.2")
+
+# protobuf
+bazel_dep(name = "protobuf", version = "29.2")
+
+# rules_cc
+bazel_dep(name = "rules_cc", version = "0.1.0")
+
+# rules_proto
+bazel_dep(name = "rules_proto", version = "7.1.0")
+
+#nativefiledialog
+git_repository(name = "nativefiledialog_git", remote = "https://github.com/mlabbe/nativefiledialog.git", commit = "5cfe5002eb0fac1e49777a17dec70134147931e2")
+
+#mxebzl
+git_repository(name = "mxebzl", remote = "https://github.com/cfrantz/mxebzl.git", commit = "665b8213aba4cab00881be771906bbe28b3066c9")
+
+mxe_compiler(
+    deps = [
+        "SDL2",
+        "SDL2-extras",
+        "compiler",
+        "pthreads",
+        "python",
+    ],
+)
