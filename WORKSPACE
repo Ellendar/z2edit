@@ -63,7 +63,7 @@ bind(
 ######################################################################
 git_repository(
     name = "com_google_absl",
-    commit = "0f86336b6939ea673cc1cbe29189286cae67d63a",
+    commit = "4447c7562e3bc702ade25105912dce503f0c4010",
     remote = "https://github.com/abseil/abseil-cpp.git",
 )
 
