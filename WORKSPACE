@@ -92,13 +92,17 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_proto/releases/download/7.1.0/rules_proto-7.1.0.tar.gz",
 )
 
+#load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
+#rules_cc_dependencies()
+#load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies")
+#rules_proto_dependencies()
+#load("@rules_proto//proto:toolchains.bzl", "rules_proto_toolchains")
+#rules_proto_toolchains()
+
 load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
 rules_cc_dependencies()
-
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies")
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 rules_proto_dependencies()
-
-load("@rules_proto//proto:toolchains.bzl", "rules_proto_toolchains")
 rules_proto_toolchains()
 
 ######################################################################
