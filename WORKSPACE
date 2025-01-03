@@ -73,7 +73,7 @@ git_repository(
 git_repository(
     name = "com_google_protobuf",
     remote = "https://github.com/google/protobuf.git",
-    tag = "v3.11.3",
+    tag = "v29.2",
 )
 
 # rules_cc defines rules for generating C++ code from Protocol Buffers.
@@ -87,12 +87,9 @@ http_archive(
 # rules_proto defines abstract rules for building Protocol Buffers.
 http_archive(
     name = "rules_proto",
-    sha256 = "57001a3b33ec690a175cdf0698243431ef27233017b9bed23f96d44b9c98242f",
-    strip_prefix = "rules_proto-9cd4f8f1ede19d81c6d48910429fe96776e567b1",
-    urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_proto/archive/9cd4f8f1ede19d81c6d48910429fe96776e567b1.tar.gz",
-        "https://github.com/bazelbuild/rules_proto/archive/9cd4f8f1ede19d81c6d48910429fe96776e567b1.tar.gz",
-    ],
+    sha256 = "14a225870ab4e91869652cfd69ef2028277fc1dc4910d65d353b62d6e0ae21f4",
+    strip_prefix = "rules_proto-7.1.0",
+    url = "https://github.com/bazelbuild/rules_proto/releases/download/7.1.0/rules_proto-7.1.0.tar.gz",
 )
 
 load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
