@@ -78,8 +78,6 @@ git_repository(
 )
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
-load("@com_google_protobuf//:protobuf_extra_deps.bzl", "protobuf_extra_deps")
-protobuf_extra_deps();
 
 # rules_cc defines rules for generating C++ code from Protocol Buffers.
 http_archive(
