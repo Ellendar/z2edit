@@ -1,3 +1,4 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 ######################################################################
 # gflags
 ######################################################################
@@ -75,6 +76,10 @@ git_repository(
     remote = "https://github.com/google/protobuf.git",
     tag = "v29.2",
 )
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()
+load("@com_google_protobuf//:protobuf_extra_deps.bzl", "protobuf_extra_deps")
+protobuf_extra_deps();
 
 # rules_cc defines rules for generating C++ code from Protocol Buffers.
 http_archive(
@@ -83,6 +88,8 @@ http_archive(
     sha256 = "abc605dd850f813bb37004b77db20106a19311a96b2da1c92b789da529d28fe1",
     strip_prefix = "rules_cc-0.0.17",
 )
+load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
+rules_cc_dependencies()
 
 # rules_proto defines abstract rules for building Protocol Buffers.
 http_archive(
@@ -92,18 +99,12 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_proto/releases/download/7.1.0/rules_proto-7.1.0.tar.gz",
 )
 
-#load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
-#rules_cc_dependencies()
-#load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies")
-#rules_proto_dependencies()
-#load("@rules_proto//proto:toolchains.bzl", "rules_proto_toolchains")
-#rules_proto_toolchains()
-
-load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies")
-rules_cc_dependencies()
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies")
 rules_proto_dependencies()
+
+load("@rules_proto//proto:toolchains.bzl", "rules_proto_toolchains")
 rules_proto_toolchains()
+
 
 ######################################################################
 # native file dialog
